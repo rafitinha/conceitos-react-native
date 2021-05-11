@@ -29,7 +29,10 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-    {projects.map(project => (
+     <FlatList 
+          data={projects}
+          keyExtractor={project => project.id}
+          renderItem={({ item: project }) => (
       <View style={styles.repositoryContainer} key={project.id}>
              <Text style={styles.repository}>{project.title}</Text>
               <View style={styles.techsContainer}>
@@ -53,7 +56,8 @@ const App = () => {
             <Text style={styles.buttonText}>Curtir</Text>
           </TouchableOpacity>
       </View>  
-        ))}
+        )}
+        />
     </SafeAreaView>
   );
 }
